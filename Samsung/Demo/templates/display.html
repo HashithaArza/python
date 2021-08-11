@@ -1,0 +1,92 @@
+{% include "./menu.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Stored Mobiles</title>
+</head>
+<body>
+<center>
+    <h2>Samsung Mobile Details Stored In Our Database</h2>
+<p align="right">
+  <b><input type="button" onClick="window.location.href='/details'" value="+ ADD DEVICE" class="btn" />
+</b></p>
+<table class="styled-table">
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                    <th>Release Date</th>
+                    <th>Battery</th>
+                    <th>Ram</th>
+                    <th>ROM</th>
+                    <th>OS</th>
+                    <th>Color</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for obj in mobiles %}
+                <tr>
+                    <td>{{obj.id}}</td>
+                    <td>{{obj.name}}</td>
+                    <td>{{obj.model}}</td>
+                    <td>{{obj.price}}</td>
+                    <td>{{obj.release_date}}</td>
+                    <td>{{obj.battery_capacity}}</td>
+                    <td>{{obj.ram}}</td>
+                    <td>{{obj.internal_storage}}</td>
+                    <td>{{obj.os}}</td>
+                    <td>{{obj.color}}</td>
+                </tr>
+            {% endfor %}
+</tbody>
+</table>
+</center>
+</body>
+<style>
+        .styled-table {
+    border-collapse: collapse;
+    margin: 0 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+.btn{
+border: none;
+padding: 12px 30px;
+background-color: #009879;
+color: white;
+margin-right: 10%;
+  margin-left:auto;
+}
+    </style>
+</html>
